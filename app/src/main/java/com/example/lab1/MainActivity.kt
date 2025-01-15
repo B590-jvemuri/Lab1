@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,12 +19,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
-        trueButton.setOnClickListener {
-            view: View ->
-            Toast.makeText(
-                this,
+//        trueButton.setOnClickListener {
+//            view: View ->
+//            Toast.makeText(
+//                this,
+//                R.string.correct_toast,
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+        trueButton.setOnClickListener { view: View ->
+            Snackbar.make(
+                view,
                 R.string.correct_toast,
-                Toast.LENGTH_SHORT
+                Snackbar.LENGTH_SHORT
             ).show()
         }
     }
