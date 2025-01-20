@@ -2,9 +2,7 @@ package com.example.lab1
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lab1.databinding.ActivityMainBinding
 
@@ -23,23 +21,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.trueButton.setOnClickListener {
-            view: View ->
+        binding.trueButton.setOnClickListener { view: View ->
             Toast.makeText(
                 this,
                 R.string.correct_toast,
                 Toast.LENGTH_SHORT
             ).show()
         }
-        binding.falseButton.setOnClickListener {
-                view: View ->
+        binding.falseButton.setOnClickListener { view: View ->
             Toast.makeText(
                 this,
                 R.string.incorrect_toast,
                 Toast.LENGTH_SHORT
             ).show()
         }
-        val questionTextResId= questionBank[currentIndex].textResId
+        binding.nextButton.setOnClickListener {
+            currentIndex = (currentIndex + 1) % questionBank.size
+            updateQuestion()
+        }
+        updateQuestion()
+    }
+    private fun updateQuestion() {
+        val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
     }
 }
