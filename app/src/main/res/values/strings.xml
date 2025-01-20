@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">Lab1</string>
-    <string name="question_text">Canberra is the capital of Australia.</string>
+    <string name="question_India_text">India is a country in South Asia.</string>
+    <string name="question_USA_text">USA is a country in North America.</string>
+    <string name="question_UK_text">UK is a country in Europe.</string>
+    <string name="question_UAE_text">UAE is a country in Asia.</string>
+    <string name="question_Australia_text">Australia is a country in Oceania.</string>
+    <string name="question_Water_text">Water boils at 100°C at sea level</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="correct_toast">Correct</string>
+    <string name="next_button">Next</string>
+    <string name="incorrect_toast">Incorrect</string>
 </resources>
