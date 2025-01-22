@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lab1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+//    lateinit- postpone the initialization of a variable until it is used, avoid null pointer exceptions
     private lateinit var binding: ActivityMainBinding
     private val questionBank = listOf(
         Question(R.string.question_Australia_text, true),
