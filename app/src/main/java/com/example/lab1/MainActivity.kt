@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         Question(R.string.question_Water_text, false)
     )
     private var currentIndex = 0
+    private val answeredQuestions = mutableSetOf<Int>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
+        updateButtonState()
     }
     private fun checkAnswer(userAnswer:Boolean){
         val correctAnswer= questionBank[currentIndex].answer
@@ -58,5 +60,12 @@ class MainActivity : AppCompatActivity() {
             R.string.incorrect_toast
         }
         Toast.makeText(this,messageResId,Toast.LENGTH_SHORT).show()
+        answeredQuestions.add(currentIndex)
+        updateButtonState()
+    }
+    private fun updateButtonState() {
+        val isQuestionAnswered = currentIndex in answeredQuestions
+        binding.trueButton.isEnabled = !isQuestionAnswered
+        binding.falseButton.isEnabled = !isQuestionAnswered
     }
 }
