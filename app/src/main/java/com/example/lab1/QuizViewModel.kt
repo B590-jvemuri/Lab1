@@ -2,6 +2,7 @@ package com.example.lab1
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import android.util.Log
 
 private  const val  TAG = "QuizViewModel"
 const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
@@ -23,6 +24,7 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
     val currentQuestionText: Int
         get() = questionBank[currentIndex].textResId
     fun moveToNext(){
+//        Log.d(TAG, "Updating question text", Exception())
         currentIndex = (currentIndex + 1) % questionBank.size
     }
     fun moveToPrevious(){
